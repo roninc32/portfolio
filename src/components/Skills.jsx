@@ -1,90 +1,87 @@
 import React from 'react';
 
-export default function Projects() {
-    const projects = [
-        {
-            title: 'CasaHeights',
-            stack: 'C#, ASP.NET MVC, MSSQL',
-            points: [
-                'Web-based community management portal streamlining residential operations.',
-                'Features a conflict-free Facility Booking System and an Issue Reporting Module for maintenance tracking.'
-            ]
-        },
-        {
-            title: 'Captain Lucas',
-            stack: 'ReactJS, Tailwind CSS, Vercel',
-            points: [
-                'Fully responsive digital invitation web app with a custom mobile-first aviation design.',
-                'Deployed via Vercel for high availability, utilizing React components for a dynamic user experience.'
-            ]
-        }
-    ];
+export default function Skills() {
+  const skills = [
+    {
+      category: 'Frontend',
+      items: ['ReactJS', 'HTML', 'CSS', 'JavaScript', 'Tailwind CSS']
+    },
+    {
+      category: 'Backend',
+      items: ['Node.js', 'ASP.NET MVC', 'C#', 'SQL']
+    },
+    {
+      category: 'Tools & Others',
+      items: ['Git', 'Agile', 'MSSQL', 'REST APIs']
+    }
+  ];
 
-    return (
-        <section className="section">
-            <h3 className="section-title">Selected Projects</h3>
+  return (
+    <section id="skills" className="section">
+      <h3 className="section-title">Skills</h3>
 
-            <div className="projects-list">
-                {projects.map((project, index) => (
-                    <div key={index} className="project-item">
-                        <div className="project-header">
-                            <span className="project-title">{project.title}</span>
-                            <span className="separator">|</span>
-                            <span className="project-stack">{project.stack}</span>
-                        </div>
-                        <ul className="project-points">
-                            {project.points.map((point, i) => (
-                                <li key={i}>{point}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+      <div className="skills-grid">
+        {skills.map((skillGroup, index) => (
+          <div key={index} className="skill-group">
+            <h4 className="skill-category">{skillGroup.category}</h4>
+            <div className="skill-items">
+              {skillGroup.items.map((skill, i) => (
+                <span key={i} className="skill-tag">{skill}</span>
+              ))}
             </div>
+          </div>
+        ))}
+      </div>
 
-            <style>{`
-        .projects-list {
-          display: flex;
-          flex-direction: column;
+      <style>{`
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 1.5rem;
         }
 
-        .project-header {
+        .skill-group {
           display: flex;
-          gap: 0.5rem;
-          align-items: baseline;
-          margin-bottom: 0.5rem;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .skill-category {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--color-text-primary);
+          margin: 0;
+        }
+
+        .skill-items {
+          display: flex;
           flex-wrap: wrap;
+          gap: 0.5rem;
         }
 
-        .project-title {
-          font-weight: 700;
+        .skill-tag {
+          display: inline-block;
+          padding: 0.4rem 0.8rem;
+          background-color: var(--color-bg);
+          border: 1px solid var(--color-border);
+          border-radius: 6px;
+          font-size: 0.9rem;
           color: var(--color-text-primary);
-          font-size: 1.05rem;
+          transition: all var(--transition-fast);
         }
 
-        .separator {
-          color: var(--color-text-secondary);
+        .skill-tag:hover {
+          background-color: var(--color-accent);
+          color: white;
+          border-color: var(--color-accent);
         }
 
-        .project-stack {
-          font-family: var(--font-sans);
-          font-style: italic;
-          color: var(--color-text-secondary);
-          font-size: 0.95rem;
-        }
-
-        .project-points {
-          list-style-type: disc;
-          padding-left: 1.25rem;
-          color: var(--color-text-primary);
-        }
-
-        .project-points li {
-          margin-bottom: 0.25rem;
-          font-size: 0.95rem;
-          line-height: 1.5;
+        @media (max-width: 600px) {
+          .skills-grid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 }
