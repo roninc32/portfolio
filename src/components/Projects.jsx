@@ -11,11 +11,11 @@ export default function Projects() {
       ]
     },
     {
-      title: 'Captain Lucas',
-      stack: 'ReactJS, Tailwind CSS, Vercel',
+      title: 'Craftopia',
+      stack: 'ReactJS, Node.js, Generative AI, Tailwind CSS',
       points: [
-        'Fully responsive digital invitation web app with a custom mobile-first aviation design.',
-        'Deployed via Vercel for high availability, utilizing React components for a dynamic user experience.'
+        'Integrated generative AI algorithms to automate the creation of personalized DIY craft tutorials from user inputs.',
+        'Engineered an intelligent suggestion engine that automatically curates upcycling projects based on available waste materials.'
       ]
     }
   ];

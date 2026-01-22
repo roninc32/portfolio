@@ -1,57 +1,88 @@
 import React from 'react';
 
-export default function Skills() {
-    const skills = [
-        { category: 'Languages', items: 'JavaScript (ES6+), HTML5, CSS3, SQL, C#' },
-        { category: 'Frontend', items: 'React.js, Next.js, Tailwind CSS, Redux, React Native' },
-        { category: 'Backend', items: 'Node.js, Express.js, ASP.NET MVC, RESTful APIs' },
-        { category: 'Database & Tools', items: 'MongoDB, Git/GitHub, Fiona, Postman, VS Code' }
+export default function Projects() {
+    const projects = [
+        {
+            title: 'CasaHeights',
+            stack: 'C#, ASP.NET MVC, MSSQL',
+            points: [
+                'Web-based community management portal streamlining residential operations.',
+                'Features a conflict-free Facility Booking System and an Issue Reporting Module for maintenance tracking.'
+            ]
+        },
+        {
+            title: 'Captain Lucas',
+            stack: 'ReactJS, Tailwind CSS, Vercel',
+            points: [
+                'Fully responsive digital invitation web app with a custom mobile-first aviation design.',
+                'Deployed via Vercel for high availability, utilizing React components for a dynamic user experience.'
+            ]
+        }
     ];
 
     return (
         <section className="section">
-            <h3 className="section-title">Skills</h3>
+            <h3 className="section-title">Selected Projects</h3>
 
-            <div className="skills-container">
-                {skills.map((group, index) => (
-                    <div key={index} className="skill-row">
-                        <span className="skill-label">{group.category}:</span>
-                        <span className="skill-list">{group.items}</span>
+            <div className="projects-list">
+                {projects.map((project, index) => (
+                    <div key={index} className="project-item">
+                        <div className="project-header">
+                            <span className="project-title">{project.title}</span>
+                            <span className="separator">|</span>
+                            <span className="project-stack">{project.stack}</span>
+                        </div>
+                        <ul className="project-points">
+                            {project.points.map((point, i) => (
+                                <li key={i}>{point}</li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
             </div>
 
             <style>{`
-        .skills-container {
+        .projects-list {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 1.5rem;
         }
 
-        .skill-row {
+        .project-header {
           display: flex;
+          gap: 0.5rem;
           align-items: baseline;
+          margin-bottom: 0.5rem;
+          flex-wrap: wrap;
         }
 
-        .skill-label {
-          width: 140px;
-          font-weight: 600;
+        .project-title {
+          font-weight: 700;
           color: var(--color-text-primary);
-          flex-shrink: 0;
+          font-size: 1.05rem;
         }
 
-        .skill-list {
+        .separator {
+          color: var(--color-text-secondary);
+        }
+
+        .project-stack {
+          font-family: var(--font-sans);
+          font-style: italic;
+          color: var(--color-text-secondary);
+          font-size: 0.95rem;
+        }
+
+        .project-points {
+          list-style-type: disc;
+          padding-left: 1.25rem;
           color: var(--color-text-primary);
-          width: 100%;
         }
 
-        @media (max-width: 600px) {
-          .skill-row {
-            flex-direction: column;
-          }
-          .skill-label {
-            margin-bottom: 0.25rem;
-          }
+        .project-points li {
+          margin-bottom: 0.25rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
         }
       `}</style>
         </section>
